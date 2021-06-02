@@ -19,7 +19,7 @@ export default function GetPokeByType () {
         if (pokeType) {
         const getPokeTypeData = async () => {
                 let response = await axios.get(`https://pokeapi.co/api/v2/type/${pokeType.toLowerCase()}`);
-                setPokeData(response.data.pokemon);
+                setPokeData(response.data.pokemon.slice(0,1));
             }
             getPokeTypeData();
         }
@@ -99,7 +99,7 @@ export default function GetPokeByType () {
 
         <div className="container-screen d-flex justify-content-center align-items-center">
             <div className="container-screen_1 d-flex justify-content-center align-items-center">
-                <div style={{height:"100%"}} className="container-screen_2">
+                <div className="container-screen_2 d-flex justify-content-center align-items-center">
                     {pokeData && pokeData.map((element, index)=> (
                     <CardsPokeByType key={element.pokemon.name + index} data={element.pokemon.url}/>
                     ))}      

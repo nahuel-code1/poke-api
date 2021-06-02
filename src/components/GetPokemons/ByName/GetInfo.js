@@ -36,7 +36,6 @@ export default function SearchPokeByName () {
             const consumePokeByName = async () => {
                 let response = await  axios.get(`https://pokeapi.co/api/v2/pokemon/${pokemonUrl.toLowerCase()}`);
                 setData(response.data);
-                console.log(response.data);
             };
 
             consumePokeByName();

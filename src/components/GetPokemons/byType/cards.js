@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import axios from "axios";
-import { Link, useRouteMatch } from 'react-router-dom';
+import MoreStatsByType from "../byType/moreStats";
+import { Link, Route, Switch, useRouteMatch } from 'react-router-dom';
 
 export default function CardsPokeByType({data}) {
-    let { url } = useRouteMatch();
+    // let { url } = useRouteMatch();
+    
     let [ dataTypes, setDataTypes ] = useState("");
 
     useEffect(()=> {
@@ -14,13 +16,16 @@ export default function CardsPokeByType({data}) {
             }
             getDataTypes();
         }
-       
     }, [data])
     
     return (
-            <div>
-            {dataTypes &&  
-                    <div>
+        <Switch>
+                <Route path="/pokedex/type/:id" component={MoreStatsByType} />
+
+                <Route path="/pokedex/type"  >
+                    <div className="bg container-types">
+                        {dataTypes &&  
+                        <div>
                         <img src={dataTypes.sprites.front_default} alt={dataTypes.name} />
                         <p>
                             {dataTypes.name}
@@ -37,29 +42,15 @@ export default function CardsPokeByType({data}) {
                         <p>
                             Speed: {dataTypes.stats[3].base_stat}
                         </p>
+                        
+                       <button className="button-options">
+                            <Link to={`/pokedex/type/${dataTypes.id}`}>Stats</Link>
+                        </button>
                     </div>
-            }     
-        </div>
-              
-
-    //         {/* <Switch>
-    //             <Route path="/pokedex/name/:id" component={CardWithMoreStats}  />
-    //         </Switch> */}
-      
-    //     {/* <div className="button-section bg d-flex"> */}
-    //         {/* <button className="button-options">
-    //             <Link to={`${url}/${id}`}>Stats</Link>
-    //         </button> */}
-
-    //         {/* <button className="button-options">
-    //             <Link to={`${url}/${id}/encounters`}> Encounters </Link>
-    //         </button>
-
-    //         <button className="button-options">
-    //             <Link to="/pokedex"> Reset </Link>
-    //         </button> */}
-    //     </div>
-
-    // </div>
+                    }     
+                    </div>
+                </Route>
+        </Switch>
+           
     )
 }

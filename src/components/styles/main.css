@@ -1,0 +1,154 @@
+.contenedor {
+    background-color: blue;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+a {
+    text-decoration: none;
+}
+
+
+/* Buscador */
+.container-search {
+    width: 30%;
+    height: 97%;
+    background-color: #E61D22;
+    border:solid 4px #010100;
+    border-right: none;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+}
+
+.container-search-screen {
+    width: 88%;
+    height: 75%;
+    background-color: #010100;
+}
+
+.container-search-screen_1 {
+    border: solid 11px #010100;
+    border-radius: 30px;
+    background-color: #57ACFF;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.container-search-screen_2 {
+    width: 90%;
+}
+
+
+/* Estructura del diseño */
+.estructure {
+    width: 4%;
+    height: 97%;
+    border: solid 4px #010100;
+    background-color: #E61D22;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.estructure_1 {
+    height: 18%;
+    width: 100%;
+    border-bottom-width: 4px;
+    border-bottom-color: #010100;
+    border-bottom-style: solid;
+    background: linear-gradient(to right, #7F100F, #E71D23, #E71D23, #7F100F);
+}
+
+.estructure_2 {
+    background: linear-gradient(to right, #7F100F, #E71D23, #E71D23, #7F100F);
+    height: 18%;
+    width: 100%;
+    border-top-width: 4px;
+    border-top-color: #010100;
+    border-top-style: solid;
+}
+
+/* Pantalla de resultados */
+.container-screen {
+    width: 66%;
+    height: 97%;
+    background-color: #E61D22;
+    border:solid 4px #010100;
+    border-left: none;
+}
+
+.container-screen_1 {
+    width: 88%;
+    height: 80%;
+    background-color: #010100;
+}
+
+.container-screen_2 {
+    height: 100%;
+    width: 100%;
+    border: solid 11px #010100;
+    border-radius: 30px;
+    background-color: #57ACFF;
+}
+
+.container-screen_3 {
+    height: 95%;
+    width: 30%;
+    margin-left: 10px;
+}
+
+.container-moreStats {
+    height: 100%;
+}
+
+/* dd */
+
+.text-white {
+    color: #FFFFFE;
+}
+
+.button-section {
+    width: 100%;
+    height: 10%;
+}
+
+.button-options {
+    align-items: center;
+    background: #DEDEDE;
+    border-radius: 3px;
+    border: 2px solid black;
+    box-shadow: 0 0 2px 2px rgba(0,0,0,.3);
+    cursor: pointer;
+    display: flex;
+    font-weight: bold;
+    height: 30px;
+    justify-content: center;
+    text-transform: uppercase;
+    width: 100px;
+    margin: 10px;
+}
+
+.button-options a {
+    color: #010100;
+}
+
+.bg {
+    background-color: #E61D22;
+}
+
+.bg2 {
+    background-color: antiquewhite;
+}
+
+.ej {
+    width: 100%;
+    height: 100%;
+}

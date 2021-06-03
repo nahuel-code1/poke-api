@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import axios from "axios";
+import Encounters from "../ByName/encounters";
 import { Route, Switch, useParams, useRouteMatch } from 'react-router';
+import { Link } from 'react-router-dom';
 
 export default function MoreStatsByType () {
     let [moreStats, setMoreStats] = useState("");
     
-    let { path } = useRouteMatch();
-
+    let { path, url } = useRouteMatch();
     let { id } = useParams();
 
     useEffect(() => {
@@ -32,8 +33,8 @@ export default function MoreStatsByType () {
     }
 
     return (
-        <div className="container-moreStats d-flex align-items-center">
-            <div className="d-flex flex-column align-items-center">
+        <div>
+            <div>
                 <p>
                     #{moreStats.order}
                 </p>
@@ -46,12 +47,14 @@ export default function MoreStatsByType () {
                 <p>Abilities: </p>
                 <AbilitesData />
             </div>
-            
-           {/* <Switch>
+            <Switch>
                 <Route path={`${path}/encounters`}>
                     <Encounters urlEncounter={dataEncounters} />
                 </Route>   
-            </Switch>  */}
+            </Switch> 
+            
+            <Link to={`${url}/encounters`}>Encounters</Link>
+          
         </div>         
     )
   }  

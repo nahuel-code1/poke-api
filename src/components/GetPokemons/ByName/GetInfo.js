@@ -44,15 +44,13 @@ export default function SearchPokeByName () {
 
     // ------------------------------------------------------------
 
-    
-
     return (
-        <div className="contenedor">
-        <div className="container-search">
-            <div className="container-search-screen">
-                <div className="container-search-screen_1">
+        <div>
+        <div>
+            <div>
                 <div>
-               <h5 className="text-center">You can view a Pokemon searching by name or Id</h5>
+                <div>
+               <h5>You can view a Pokemon searching by name or Id</h5>
                 <form onSubmit={handleSubmit(handleInputName)}>
                     <input
                     className="form-control"
@@ -68,32 +66,9 @@ export default function SearchPokeByName () {
                 
                 </div>
             </div>
-           
-            <div className="d-flex">
-                <button className="button-options">
-                    <Link to="/pokedex/type">
-                        Type
-                    </Link>
-                </button>
-
-                <button className="button-options">
-                    <Link to="/pokedex/name">
-                        Name
-                    </Link>
-                </button>
-            </div>
         </div>
 
-        <div className="estructure">
-            <div className="estructure_1">
-
-            </div>
-            <div className="estructure_2">
-                
-            </div>
-        </div>
-
-        <div className="container-screen d-flex justify-content-center align-items-center">
+        <div>
             {data && <CardPokeName data={data}/>}
         </div>
     </div>    

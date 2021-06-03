@@ -3,7 +3,6 @@ import "/Users/nahue/OneDrive/Escritorio/React #5App/poke-api/src/components/st
 import axios from "axios";
 import {useForm} from "react-hook-form";
 import CardsPokeByType from "./cards";
-import { Link } from 'react-router-dom';
 
 export default function GetPokeByType () {
     // -----------------------------------------------------------------------------------------------------
@@ -11,6 +10,9 @@ export default function GetPokeByType () {
 
     let [pokeType, setPokeType] = useState("");
     let [pokeData, setPokeData] = useState([]);
+    let [ pokeLength, setPokeLength ] = useState(0);
+    let [initialPoke, setInitialPoke] = useState(0);
+    let [ultimatePoke, setUltimatePoke] = useState(4);
 
     // -----------------------------------------------------------------------------------------------------
     //                              useEffect Section
@@ -19,11 +21,12 @@ export default function GetPokeByType () {
         if (pokeType) {
         const getPokeTypeData = async () => {
                 let response = await axios.get(`https://pokeapi.co/api/v2/type/${pokeType.toLowerCase()}`);
-                setPokeData(response.data.pokemon.slice(0,1));
+                setPokeData(response.data.pokemon.slice(initialPoke,ultimatePoke));
+                setPokeLength(response.data.pokemon.length);
             }
             getPokeTypeData();
         }
-    }, [pokeType])
+    }, [pokeType, initialPoke])
 
     // -----------------------------------------------------------------------------------------------------
     //                              useForm Section
@@ -37,12 +40,9 @@ export default function GetPokeByType () {
     // -----------------------------------------------------------------------------------------------------
 
     return (
-        <div className="contenedor">
-        <div className="container-search">
-            <div className="container-search-screen">
-                <div className="container-search-screen_1">
-                <div>
-                <h5 className="text-center">You can view many Pokemons searching by type</h5>
+    <div className="container-routes">
+                <div className="form-type-section">
+                <h5>You can view many Pokemons searching by type</h5>
                 <form onSubmit={handleSubmit(handleGetType)}>
                 <select {...register("type", {required: true})} className="form-control" >
                     <option>normal</option>
@@ -63,49 +63,31 @@ export default function GetPokeByType () {
                     <option>dragon</option>
                     <option>dark</option>
                     <option>fairy</option>
-                    <option>unknow</option>
-                    <option>shadow</option>
                 </select>
-                <button className="button-options" type="submit">Search</button>
+                <div className="d-flex justify-content-center">
+                    <button className="button-options" type="submit">Search</button>
+                </div>
             </form>
-               </div>
-                
-                </div>
-            </div>
-           
-            <div className="d-flex">
-                <button className="button-options">
-                    <Link to="/pokedex/type">
-                        Type
-                    </Link>
-                </button>
+           </div> 
+          
+           <button onClick={() => {
+                        if ( initialPoke >= 4 ) {
+                            setInitialPoke(initialPoke - 4);
+                            setUltimatePoke(ultimatePoke - 4);
+                        }
+                    }}>Previous</button>
+                    <button onClick={()=> {
+                        if (initialPoke <= pokeLength ) {
+                         setInitialPoke(initialPoke + 4);
+                         setUltimatePoke(ultimatePoke + 4);   
+                        } 
+                    }}>Next</button>
 
-                <button className="button-options">
-                    <Link to="/pokedex/name">
-                        Name
-                    </Link>
-                </button>
-            </div>
-        </div>
-
-        <div className="estructure">
-            <div className="estructure_1">
-
-            </div>
-            <div className="estructure_2">
-                
-            </div>
-        </div>
-
-        <div className="container-screen d-flex justify-content-center align-items-center">
-            <div className="container-screen_1 d-flex justify-content-center align-items-center">
-                <div className="container-screen_2 d-flex justify-content-center align-items-center">
-                    {pokeData && pokeData.map((element, index)=> (
-                    <CardsPokeByType key={element.pokemon.name + index} data={element.pokemon.url}/>
-                    ))}      
-                </div>
-            </div>  
-        </div>
+           <div className="container-poke-types d-flex justify-content-center align-items-center">
+                {pokeData && pokeData.map((element, index)=> (
+                    <CardsPokeByType key={element.pokemon.name + index} data={element.pokemon.url}/>                    
+                ))}    
+           </div>  
     </div>                
     )
 }

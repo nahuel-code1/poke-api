@@ -6,15 +6,11 @@ import "../styles/main.css";
 
 export function Main () {
     return (
-        <div className="contenedor">
-            <div className="container-search">
-                <div className="container-search-screen">
-                    <div className="container-search-screen_1">
-                       
-                    </div>
-                </div>
-               
-                <div className="d-flex">
+    <div className="container">
+       <div className="container_2 bg2">
+            <div className="container_3">
+                <h1 className="text-center">POKEDEX</h1>
+                <div className="btn-section">
                     <button className="button-options">
                         <Link to="/pokedex/type">
                             Type
@@ -26,21 +22,13 @@ export function Main () {
                             Name
                         </Link>
                     </button>
-                </div>
-            </div>
-
-            <div className="estructure">
-                <div className="estructure_1">
-
-                </div>
-                <div className="estructure_2">
-                    
-                </div>
-            </div>
-
-            <div className="container-screen">
-              
-            </div>
-        </div>
+                </div>    
+                <Switch>
+                    <Route path="/pokedex/name" component={SearchPokeByName}  />
+                    <Route path="/pokedex/type" component={GetPokeByType} />
+                </Switch>
+            </div> 
+        </div> 
+    </div>        
     )
 }

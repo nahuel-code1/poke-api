@@ -8,7 +8,7 @@ export default function CardWithMoreStats () {
 
     let [moreStats, setMoreStats] = useState("");
     
-    let { url, path } = useRouteMatch();
+    let { path, url } = useRouteMatch();
 
     let { id } = useParams();
 
@@ -35,8 +35,8 @@ export default function CardWithMoreStats () {
     }
 
     return (
-        <div className="container-moreStats d-flex align-items-center">
-            <div className="d-flex flex-column align-items-center">
+        <div>
+            <div>
                 <p>
                     #{moreStats.order}
                 </p>
@@ -47,6 +47,7 @@ export default function CardWithMoreStats () {
                     Height: {moreStats.height} Mt
                 </p>
                 <p>Abilities: </p>
+
                 <AbilitesData />
             </div>
             
@@ -55,6 +56,9 @@ export default function CardWithMoreStats () {
                     <Encounters urlEncounter={dataEncounters} />
                 </Route>   
             </Switch> 
+
+            <Link to={`${url}/encounters`}>Encounters</Link>
+
         </div>         
     )
   }  

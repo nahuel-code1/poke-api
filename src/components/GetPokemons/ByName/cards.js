@@ -32,15 +32,15 @@ export default function CardPokeName ({data}) {
    }
 
     return (
-                <div className="container-screen_1 d-flex flex-column">
-                    <div className="container-screen_2 d-flex">
-                        <div className="container-screen_3">
-                            <div className="d-flex align-items-center flex-column">
+                <div>
+                    <div>
+                        <div>
+                            <div>
                                 <img src={sprites.front_default} alt={name} />
                                 <h5>{name}</h5>
                             </div>
 
-                            <div className="d-flex justify-content-around">
+                            <div>
                                 <div>
                                     <p>Type: </p>
                                     {types.length < 2 ? <PokemonType /> : <PokemonTypes />}
@@ -55,9 +55,6 @@ export default function CardPokeName ({data}) {
                             </div>
                         </div>
 
-                        <Switch>
-                            <Route path="/pokedex/name/:id" component={CardWithMoreStats}  />
-                        </Switch>
                     </div>
                   
                     <div className="button-section bg d-flex">
@@ -65,13 +62,6 @@ export default function CardPokeName ({data}) {
                             <Link to={`${url}/${id}`}>Stats</Link>
                         </button>
 
-                        <button className="button-options">
-                            <Link to={`${url}/${id}/encounters`}> Encounters </Link>
-                        </button>
-
-                        <button className="button-options">
-                            <Link to="/pokedex"> Reset </Link>
-                        </button>
                     </div>
   
                 </div>

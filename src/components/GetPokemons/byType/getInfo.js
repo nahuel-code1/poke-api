@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from 'react'
-import "/Users/nahue/OneDrive/Escritorio/React #5App/poke-api/src/components/styles/main.css";
+import React, { useEffect, useState } from 'react';
 import axios from "axios";
 import {useForm} from "react-hook-form";
 import CardsPokeByType from "./cards";
@@ -26,7 +25,7 @@ export default function GetPokeByType () {
             }
             getPokeTypeData();
         }
-    }, [pokeType, initialPoke])
+    }, [pokeType, initialPoke, ultimatePoke])
 
     // -----------------------------------------------------------------------------------------------------
     //                              useForm Section
@@ -40,50 +39,53 @@ export default function GetPokeByType () {
     // -----------------------------------------------------------------------------------------------------
 
     return (
-    <div className="container-routes">
-                <div className="form-type-section">
-                <h5>You can view many Pokemons searching by type</h5>
-                <form onSubmit={handleSubmit(handleGetType)}>
-                <select {...register("type", {required: true})} className="form-control" >
-                    <option>normal</option>
-                    <option>fighting</option>
-                    <option>flying</option>
-                    <option>poison</option>
-                    <option>ground</option>
-                    <option>rock</option>
-                    <option>bug</option>
-                    <option>ghost</option>
-                    <option>steel</option>
-                    <option>fire</option>
-                    <option>water</option>
-                    <option>grass</option>
-                    <option>electric</option>
-                    <option>psychic</option>
-                    <option>ice</option>
-                    <option>dragon</option>
-                    <option>dark</option>
-                    <option>fairy</option>
-                </select>
-                <div className="d-flex justify-content-center">
-                    <button className="button-options" type="submit">Search</button>
-                </div>
-            </form>
-           </div> 
-          
-           <button onClick={() => {
-                        if ( initialPoke >= 4 ) {
-                            setInitialPoke(initialPoke - 4);
-                            setUltimatePoke(ultimatePoke - 4);
-                        }
-                    }}>Previous</button>
-                    <button onClick={()=> {
-                        if (initialPoke <= pokeLength ) {
-                         setInitialPoke(initialPoke + 4);
-                         setUltimatePoke(ultimatePoke + 4);   
-                        } 
-                    }}>Next</button>
+    <div className="options">
+            <div className="options__info">
+                    <h5>You can view many Pokemons searching by type</h5>
+                    <form onSubmit={handleSubmit(handleGetType)}>
+                    <select {...register("type", {required: true})} className="" >
+                        <option>normal</option>
+                        <option>fighting</option>
+                        <option>flying</option>
+                        <option>poison</option>
+                        <option>ground</option>
+                        <option>rock</option>
+                        <option>bug</option>
+                        <option>ghost</option>
+                        <option>steel</option>
+                        <option>fire</option>
+                        <option>water</option>
+                        <option>grass</option>
+                        <option>electric</option>
+                        <option>psychic</option>
+                        <option>ice</option>
+                        <option>dragon</option>
+                        <option>dark</option>
+                        <option>fairy</option>
+                    </select>
+                    <div className="d-flex justify-content-center">
+                        <button className="button-options btn btn-danger" type="submit">Search</button>
+                    </div>
+                </form>
+           </div>   
 
-           <div className="container-poke-types d-flex justify-content-center align-items-center">
+            <div className="options__buttons">
+                <button onClick={() => {
+                                if ( initialPoke >= 4 ) {
+                                    setInitialPoke(initialPoke - 4);
+                                    setUltimatePoke(ultimatePoke - 4);
+                                }
+                            }} className="btn btn-danger">Previous</button>
+                            <button onClick={()=> {
+                                if (initialPoke <= pokeLength ) {
+                                setInitialPoke(initialPoke + 4);
+                                setUltimatePoke(ultimatePoke + 4);   
+                                } 
+                            }} className="btn btn-danger">Next</button>
+            </div>
+
+
+           <div className="container-cardPokemon">
                 {pokeData && pokeData.map((element, index)=> (
                     <CardsPokeByType key={element.pokemon.name + index} data={element.pokemon.url}/>                    
                 ))}    

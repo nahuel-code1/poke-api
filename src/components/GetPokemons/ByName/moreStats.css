@@ -1,0 +1,78 @@
+p {
+    margin: 0;
+}
+.container-stats {
+    width: 100vw;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container-stats_1 {
+    width: 80%;
+    border-radius: .50rem;
+    min-height: 80vh;
+    background-color: #EAEBEA;
+}
+
+.card-stat {
+    width: 20%;
+    margin: 10px 10px 0 10px;
+    border-radius: .50rem;
+    background-color: #FEFEFF;
+}
+
+.abilities-container {
+    width: 90%;
+    margin-top: 10px;
+    border-radius: .50rem;
+    background-color: #FEFEFF;
+}
+
+.border-stat {
+    border: solid 2px #E53935;
+    background-color: #E53935;
+    display: inline-block;
+    color: white;
+    border-radius: .50rem;
+}
+
+.MuiSvgIcon-root {
+    fill: currentColor;
+    width: 1em;
+    height: 1em;
+    display: inline-block;
+    font-size: 1.5rem;
+    transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    flex-shrink: 0;
+    user-select: none;
+}
+
+.logo-container {
+    width: 100%;
+    height: 8vh;
+}
+
+.logo {
+    width: 13%;
+    height: 100%;
+    background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/International_Pok%C3%A9mon_logo.svg/1920px-International_Pok%C3%A9mon_logo.svg.png");
+    background-position: center;
+    background-size: contain;
+}
+
+.logo img {
+    width: 100%;
+    height: 100%;
+    
+}
+
+.bg4 {
+    background-color: #F7F6F6;
+}
+
+.gf {
+    width: 100%;
+    min-height: 8vh;
+}

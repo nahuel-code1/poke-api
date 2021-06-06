@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import "/Users/nahue/OneDrive/Escritorio/React #5App/poke-api/src/components/styles/main.css";
 import axios from "axios";
 import CardPokeName from "./cards";
 import {useForm} from "react-hook-form";
-import { Link } from 'react-router-dom';
+
 
 export default function SearchPokeByName () {
     // -----------------------------------------------------------
@@ -45,32 +44,20 @@ export default function SearchPokeByName () {
     // ------------------------------------------------------------
 
     return (
-        <div>
-        <div>
-            <div>
-                <div>
-                <div>
-               <h5>You can view a Pokemon searching by name or Id</h5>
+        <div className="container__name">
+                <h5>You can view a Pokemon searching by name or Id</h5>
                 <form onSubmit={handleSubmit(handleInputName)}>
                     <input
                     className="form-control"
                     {...register("pokeName", {required: true})}
-                    />
-                    <div className="d-flex justify-content-center">
-                        <button className="button-options" type="submit">                       
-                            Search
+                    placeholder="Name of the pokemon"/>
+                    <button className="container__name--button btn btn-danger" type="submit">                       
+                             Search
                         </button>
-                    </div>
                 </form>
-               </div>
-                
-                </div>
+            <div>
+                {data && <CardPokeName data={data}/>}
             </div>
-        </div>
-
-        <div>
-            {data && <CardPokeName data={data}/>}
-        </div>
-    </div>    
+        </div>    
     )
 }

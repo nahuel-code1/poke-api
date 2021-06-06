@@ -6,19 +6,22 @@ import "../styles/main.css";
 
 export function Main () {
     return (
-    <div className="container">
+    <div className="container-card">
        <div className="container_2 bg2">
             <div className="container_3">
-                <h1 className="text-center">POKEDEX</h1>
+                <div className="title">
+                      <h1 className="text-center">POKEDEX</h1>
+                      
+                </div>
                 <div className="btn-section">
-                    <button className="button-options">
-                        <Link to="/pokedex/type">
+                    <button className="button-options btn btn-danger">
+                        <Link to="/pokedex/type" className="button-options__text">
                             Type
                         </Link>
                     </button>
 
-                    <button className="button-options">
-                        <Link to="/pokedex/name">
+                    <button className="button-options btn btn-danger">
+                        <Link to="/pokedex/name" className="button-options__text">
                             Name
                         </Link>
                     </button>

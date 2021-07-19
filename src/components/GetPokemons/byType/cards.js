@@ -48,7 +48,7 @@ export default function CardsPokeByType({data}) {
                                 
                             </div>
                             <div className="total-button">
-                                <button className="btn btn-outline-danger" >
+                                <button className="btn btn-danger" >
                                     <Link to={`/pokedex/type/${dataTypes.id}`} className="total-button__text">Stats</Link>
                                 </button>
                             </div>

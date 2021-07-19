@@ -10,8 +10,9 @@ export function Main () {
        <div className="container_2 bg2">
             <div className="container_3">
                 <div className="title">
-                      <h1 className="text-center">POKEDEX</h1>
-                      
+                      <div className="logo">
+
+                      </div>
                 </div>
                 <div className="btn-section">
                     <button className="button-options btn btn-danger">

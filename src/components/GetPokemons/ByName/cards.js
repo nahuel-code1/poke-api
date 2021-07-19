@@ -57,10 +57,9 @@ export default function CardPokeName ({data}) {
                     </div>
                   
                     <div className="name__total">
-                        <button className="btn btn-outline-danger">
+                        <button className="btn btn-danger">
                             <Link to={`${url}/${id}`} className="name__total-text">Stats</Link>
                         </button>
-
                     </div>
 
                 </div>
